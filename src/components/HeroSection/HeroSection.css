@@ -1,0 +1,80 @@
+.hero-section-div {
+  background-image: url("./hero-bg.png");
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-left h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: "Barlow Condensed", sans-serif;
+  line-height: 5rem;
+}
+
+.hero-left p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 22px;
+  margin-top: 2rem;
+}
+
+.hero-button-div {
+  margin-top: 2rem;
+}
+
+.hero-right {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+}
+
+.hero-right-img {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .hero-section-div {
+    background: none;
+    background-color: #f2f0f1;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .hero-left h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  .hero-left p {
+    font-size: 0.9rem;
+    line-height: 20px;
+    margin-top: 1rem;
+  }
+
+  .hero-button-div {
+    margin-top: 1.5rem;
+  }
+
+  .hero-right-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+}

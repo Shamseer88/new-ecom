@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
-import SearchBar from "../SearchBar/SearchBar";
 
 const TopNavbar = () => {
   return (
@@ -14,13 +13,23 @@ const TopNavbar = () => {
         </NavLink>
       </div>
       <div className="topnavbar-middle">
-        <NavLink to="/men">MEN</NavLink>
-        <NavLink to="/women">WOMEN</NavLink>
+        <NavLink
+          to="/men"
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+        >
+          MEN
+        </NavLink>
+        <NavLink
+          to="/women"
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+        >
+          WOMEN
+        </NavLink>
       </div>
       <div className="topnavbar-right">
-        <FaRegUser />
-        <FaRegHeart />
-        <FiShoppingCart />
+        <FaRegUser className="user-icon" />
+        <FaRegHeart size={17} className="heart-icon" />
+        <FiShoppingCart size={18} className="cart-icon" />
       </div>
     </div>
   );
