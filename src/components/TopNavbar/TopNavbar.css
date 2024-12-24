@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.topnavbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.topnavbar-middle {
+  display: flex;
+  gap: 20px;
+}
+
+.logo-text {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.topnavbar-middle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
