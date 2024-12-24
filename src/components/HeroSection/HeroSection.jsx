@@ -20,7 +20,7 @@ const HeroSection = () => {
       </div>
       <div className="hero-right">
         <img
-          src="/public/hero-bg-mobile.png"
+          src="https://github.com/Shamseer88/new-ecom/blob/main/public/hero-bg-mobile.png?raw=true"
           alt=""
           className="hero-right-img"
         />
