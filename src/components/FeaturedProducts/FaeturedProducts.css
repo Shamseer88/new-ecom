@@ -1,0 +1,19 @@
+.feature-section {
+  padding-top: 2rem;
+}
+
+.feature-section h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3rem;
+}
+
+@media (max-width: 730px) {
+  .feature-section h2 {
+    font-size: 2rem;
+  }
+  .feature-section {
+    padding-top: 1.5rem;
+  }
+}
