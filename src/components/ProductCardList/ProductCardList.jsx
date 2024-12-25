@@ -1,18 +1,28 @@
 import ProductCard from "../ProductCard/ProductCard";
 import "./ProductCardList.css";
 
-const ProductCardList = ({ products }) => {
+const ProductCardList = ({ products, heading, hasHeading }) => {
   return (
-    <div className="product-list">
-      {products?.map((product) => (
-        <ProductCard
-          key={product._id}
-          name={product.name}
-          image={product.displayImage}
-          price={product.price}
-        />
-      ))}
-    </div>
+    <>
+      <div className="product-list-heading">
+        <h2>{heading}</h2>
+      </div>
+      <div
+        className="product-list"
+        style={{
+          justifyContent: hasHeading ? "start" : "center",
+        }}
+      >
+        {products?.map((product) => (
+          <ProductCard
+            key={product._id}
+            name={product.name}
+            image={product.displayImage}
+            price={product.price}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

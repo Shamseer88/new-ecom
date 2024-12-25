@@ -1,9 +1,15 @@
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px;
   gap: 20px;
+  padding: 15px 30px;
+  justify-content: center;
+}
+
+.product-list-heading h2 {
+  padding-left: 30px;
+  margin-top: 50px;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 730px) {

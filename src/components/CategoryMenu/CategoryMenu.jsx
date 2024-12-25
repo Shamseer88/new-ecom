@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { base_domain, api_key } from "../../utils/apiDetails";
-import axios from "axios";
 import { FaBars, FaTimes } from "react-icons/fa";
+import fetchCategories from "../../utils/getCategories";
 
 import "./CategoryMenu.css";
 
@@ -9,20 +8,10 @@ const CategoryMenu = () => {
   const [categories, setCategories] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const fetchCategories = async (baseDomain, apiKey) => {
-    try {
-      const resp = await axios.get(
-        `${baseDomain}/api/v1/ecommerce/clothes/categories`,
-        {
-          headers: {
-            projectId: apiKey,
-          },
-        }
-      );
-      setCategories(resp.data.data);
-      console.log("categories", categories);
-    } catch (error) {
-      console.error("Error fetching category list", error);
+  const loadCategories = async () => {
+    const data = await fetchCategories();
+    if (data) {
+      setCategories(data);
     }
   };
 
@@ -39,7 +28,7 @@ const CategoryMenu = () => {
   };
 
   useEffect(() => {
-    fetchCategories(base_domain, api_key);
+    loadCategories();
   }, []);
 
   return (

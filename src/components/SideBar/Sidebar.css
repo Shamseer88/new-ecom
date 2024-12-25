@@ -1,0 +1,29 @@
+.sidebar-div {
+  min-width: 250px;
+  border-radius: 15px;
+  border: 1px solid lightgray;
+  margin: 50px 20px;
+  padding: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar-top-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sidebar-categories {
+  padding: 1rem 0;
+}
+
+.sidebar-category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-bottom: 3px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
