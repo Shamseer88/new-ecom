@@ -70,11 +70,4 @@
   .hero-button-div {
     margin-top: 1.5rem;
   }
-
-  .hero-right-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-  }
 }

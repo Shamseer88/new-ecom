@@ -18,13 +18,7 @@ const HeroSection = () => {
           </NavLink>
         </div>
       </div>
-      <div className="hero-right">
-        <img
-          src="https://github.com/Shamseer88/new-ecom/blob/main/public/hero-bg-mobile.png?raw=true"
-          alt=""
-          className="hero-right-img"
-        />
-      </div>
+      <div className="hero-right"></div>
     </div>
   );
 };
