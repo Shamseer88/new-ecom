@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
+import { useGender } from "../../context/GenderContext";
 
 const TopNavbar = () => {
+  const { setGender } = useGender();
   return (
     <div className="topnavbar">
       <div className="topnavbar-left">
@@ -14,13 +16,15 @@ const TopNavbar = () => {
       </div>
       <div className="topnavbar-middle">
         <NavLink
-          to="/men"
+          to="/Men"
+          onClick={() => setGender("Men")}
           className={({ isActive }) => (isActive ? "active-link" : "link")}
         >
           MEN
         </NavLink>
         <NavLink
-          to="/women"
+          to="/Women"
+          onClick={() => setGender("Women")}
           className={({ isActive }) => (isActive ? "active-link" : "link")}
         >
           WOMEN

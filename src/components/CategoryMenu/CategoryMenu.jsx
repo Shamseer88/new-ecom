@@ -3,8 +3,11 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import fetchCategories from "../../utils/getCategories";
 
 import "./CategoryMenu.css";
+import { NavLink } from "react-router-dom";
+import { useGender } from "../../context/GenderContext";
 
 const CategoryMenu = () => {
+  const { gender } = useGender();
   const [categories, setCategories] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -39,17 +42,32 @@ const CategoryMenu = () => {
       {isMenuOpen && (
         <div className="menu-items">
           {categories.map((category, index) => (
-            <p key={index} className="category-item" onClick={closeMenu}>
+            <NavLink
+              key={index}
+              className={({ isActive }) =>
+                isActive
+                  ? "category-item active-category-link"
+                  : "category-item"
+              }
+              onClick={closeMenu}
+              to={`/${gender}/${category}`}
+            >
               {capitalizeFirstLetter(category)}
-            </p>
+            </NavLink>
           ))}
         </div>
       )}
       <div className="inline-menu">
         {categories.map((category, index) => (
-          <p key={index} className="category-item">
+          <NavLink
+            key={index}
+            className={({ isActive }) =>
+              isActive ? "category-item active-category-link" : "category-item"
+            }
+            to={`/${gender}/${category}`}
+          >
             {capitalizeFirstLetter(category)}
-          </p>
+          </NavLink>
         ))}
       </div>
     </div>

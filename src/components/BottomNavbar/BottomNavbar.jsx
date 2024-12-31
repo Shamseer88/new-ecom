@@ -3,10 +3,10 @@ import "./BottomNavbar.css";
 import CategoryMenu from "../CategoryMenu/CategoryMenu";
 import SearchBar from "../SearchBar/SearchBar";
 
-const BottomNavbar = () => {
+const BottomNavbar = ({ gender }) => {
   return (
     <div className="bottom-navbar">
-      <CategoryMenu />
+      <CategoryMenu geneder={gender} />
       <SearchBar />
     </div>
   );

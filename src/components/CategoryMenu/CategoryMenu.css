@@ -26,7 +26,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: #000;
   color: black;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -40,6 +40,11 @@
   cursor: pointer;
 }
 
+a.category-item {
+  color: white !important;
+  text-decoration: none;
+}
+
 .menu-item:hover {
   background-color: #f0f0f0;
 }
@@ -49,8 +54,8 @@
   cursor: pointer;
 }
 
-.category-item:hover {
-  background-color: #f0f0f0;
+.active-category-link {
+  border-bottom: 1px solid white;
 }
 
 /* Media query for responsiveness */
