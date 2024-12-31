@@ -3,8 +3,18 @@
   justify-content: space-between;
 }
 
+.mobile-filter-div {
+  display: none;
+}
+
 @media (max-width: 1180px) {
   .gender-page {
     flex-direction: column;
+  }
+  .left-sidebar {
+    display: none;
+  }
+  .mobile-filter-div {
+    display: block;
   }
 }

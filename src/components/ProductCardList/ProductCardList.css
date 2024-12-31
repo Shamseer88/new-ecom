@@ -16,4 +16,7 @@
   .product-list {
     padding: 20px;
   }
+  .product-list-heading h2 {
+    margin-top: 0.5rem;
+  }
 }

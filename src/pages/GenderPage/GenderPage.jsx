@@ -5,6 +5,7 @@ import "./GenderPage.css";
 import axios from "axios";
 import ProductCardList from "../../components/ProductCardList/ProductCardList";
 import { useParams } from "react-router-dom";
+import MobileFilter from "../../components/SideBar/MobileFilter";
 
 const GenderPage = () => {
   const { gender, category } = useParams();
@@ -38,6 +39,9 @@ const GenderPage = () => {
     <div className="gender-page">
       <div className="left-sidebar">
         <Sidebar />
+      </div>
+      <div className="mobile-filter-div">
+        <MobileFilter />
       </div>
       <div className="product-container">
         <ProductCardList
