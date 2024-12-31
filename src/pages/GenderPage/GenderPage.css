@@ -3,6 +3,12 @@
   justify-content: space-between;
 }
 
+.left-sidebar {
+  position: sticky;
+  top: 0; /* Distance from the top */
+  height: 100vh;
+}
+
 .mobile-filter-div {
   display: none;
 }

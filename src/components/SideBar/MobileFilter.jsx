@@ -37,6 +37,10 @@ const MobileFilter = () => {
     setIsFilterBodyVisible((prev) => !prev);
   };
 
+  const applyFilter = () => {
+    setIsFilterBodyVisible(false);
+  };
+
   useEffect(() => {
     loadCategories();
   }, []);
@@ -74,6 +78,12 @@ const MobileFilter = () => {
                 )}
               </button>
             ))}
+          </div>
+          <hr />
+          <div className="apply-filter-btn-div">
+            <button className="apply-filter-btn" onClick={applyFilter}>
+              Apply Filters
+            </button>
           </div>
         </div>
       )}

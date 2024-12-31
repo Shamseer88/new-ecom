@@ -5,6 +5,7 @@ import { MdOutlineChevronRight } from "react-icons/md";
 
 import "./Sidebar.css";
 import { FaCheck } from "react-icons/fa";
+import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([]);
@@ -69,6 +70,9 @@ const Sidebar = () => {
         ))}
       </div>
       <hr />
+      <div className="apply-filter-btn-div">
+        <button className="apply-filter-btn">Apply Filters</button>
+      </div>
     </div>
   );
 };

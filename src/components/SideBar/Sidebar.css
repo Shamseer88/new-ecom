@@ -48,6 +48,7 @@
   position: relative;
   cursor: pointer;
   outline: none;
+  margin-bottom: 0.5rem;
 }
 
 .color-button.selected {
@@ -61,4 +62,22 @@
   transform: translate(-50%, -50%);
   color: darkgray;
   font-size: 16px;
+}
+
+.apply-filter-btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apply-filter-btn {
+  margin: 1.25rem 0;
+  border: none;
+  background: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  padding: 5px 15px;
+  border-radius: 7.5px;
+  cursor: pointer;
 }
