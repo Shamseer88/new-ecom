@@ -27,3 +27,38 @@
   font-size: 0.75rem;
   text-transform: capitalize;
 }
+
+.sidebar-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.sidebar-headings {
+  margin-top: 1rem;
+}
+
+.color-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.color-button.selected {
+  border: 2px solid black; /* Highlight the selected button */
+}
+
+.color-tick-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: darkgray;
+  font-size: 16px;
+}

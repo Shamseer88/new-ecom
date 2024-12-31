@@ -4,9 +4,22 @@ import fetchCategories from "../../utils/getCategories";
 import { MdOutlineChevronRight } from "react-icons/md";
 
 import "./Sidebar.css";
+import { FaCheck } from "react-icons/fa";
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([]);
+  const [selectedColor, setSelectedColor] = useState(null);
+
+  const colors = [
+    "white",
+    "black",
+    "red",
+    "green",
+    "blue",
+    "yellow",
+    "orange",
+    "violet",
+  ];
 
   const loadCategories = async () => {
     const data = await fetchCategories();
@@ -14,6 +27,11 @@ const Sidebar = () => {
       setCategories(data);
       console.log(categories);
     }
+  };
+
+  const handleColorClick = (color) => {
+    setSelectedColor(color);
+    console.log("COLOR", color);
   };
 
   useEffect(() => {
@@ -32,6 +50,22 @@ const Sidebar = () => {
             <p>{category}</p>
             <MdOutlineChevronRight />
           </div>
+        ))}
+      </div>
+      <hr />
+      <h4 className="sidebar-headings">Colors</h4>
+      <div className="sidebar-colors">
+        {colors.map((color) => (
+          <button
+            key={color}
+            className={`color-button ${
+              selectedColor === color ? "selected" : ""
+            }`}
+            style={{ backgroundColor: color }}
+            onClick={() => handleColorClick(color)}
+          >
+            {selectedColor === color && <FaCheck className="color-tick-icon" />}
+          </button>
         ))}
       </div>
       <hr />
