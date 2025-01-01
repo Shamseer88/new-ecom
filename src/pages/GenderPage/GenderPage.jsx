@@ -10,24 +10,36 @@ import MobileFilter from "../../components/SideBar/MobileFilter";
 const GenderPage = () => {
   const { gender, category } = useParams();
   const [products, setProducts] = useState([]);
+  const [showNoProductWarning, setShowNoProductWarning] = useState(false);
 
   const fetchProducts = async (baseDomain, apiKey) => {
     try {
       const filter = category
-        ? `{"gender":"${gender}","subCategory":"${category}"}`
-        : `{"gender":"${gender}"}`;
+        ? JSON.stringify({ gender, subCategory: category })
+        : JSON.stringify({ gender });
+      const encodedFilter = encodeURIComponent(filter);
+
       const response = await axios.get(
-        `${baseDomain}/api/v1/ecommerce/clothes/products?filter=${filter}&page=1`,
+        `${baseDomain}/api/v1/ecommerce/clothes/products?filter=${encodedFilter}&page=1`,
         {
           headers: {
             projectId: apiKey,
           },
         }
       );
-      setProducts(response.data.data);
-      console.log("products", products);
+
+      if (response && response.data.status === "success") {
+        setProducts(response.data.data);
+        setShowNoProductWarning(false);
+      } else {
+        setShowNoProductWarning(true);
+      }
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.status === 404) {
+        setShowNoProductWarning(true);
+      } else {
+        console.error("Error fetching products:", error);
+      }
     }
   };
 
@@ -36,7 +48,12 @@ const GenderPage = () => {
   }, [gender, category]);
 
   return (
-    <div className="gender-page">
+    <div
+      className="gender-page"
+      style={{
+        justifyContent: showNoProductWarning ? "flex-start" : "space-between",
+      }}
+    >
       <div className="left-sidebar">
         <Sidebar />
       </div>
@@ -44,11 +61,20 @@ const GenderPage = () => {
         <MobileFilter />
       </div>
       <div className="product-container">
-        <ProductCardList
-          products={products}
-          heading={category ? `${gender} - ${category}` : gender}
-          hasHeading="true"
-        />
+        {showNoProductWarning ? (
+          <div className="no-products-div">
+            <h2>
+              Sorry, no products match your selected filters. Please try some
+              other filters!
+            </h2>
+          </div>
+        ) : (
+          <ProductCardList
+            products={products}
+            heading={category ? `${gender} - ${category}` : gender}
+            hasHeading="true"
+          />
+        )}
       </div>
     </div>
   );
