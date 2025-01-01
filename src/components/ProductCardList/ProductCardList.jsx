@@ -17,6 +17,7 @@ const ProductCardList = ({ products, heading, hasHeading }) => {
           <ProductCard
             key={product._id}
             name={product.name}
+            brand={product.brand}
             image={product.displayImage}
             price={product.price}
           />
