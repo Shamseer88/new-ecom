@@ -18,8 +18,10 @@ function App() {
 
   return (
     <GenderProvider>
-      <TopNavbar />
-      <BottomNavbar gender={gender} onCategoryChange={handleCategoryChange} />
+      <div className="navbars">
+        <TopNavbar />
+        <BottomNavbar gender={gender} onCategoryChange={handleCategoryChange} />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

@@ -5,7 +5,7 @@
 
 .left-sidebar {
   position: sticky;
-  top: 0; /* Distance from the top */
+  top: 100px; /* Distance from the top */
   height: 100vh;
 }
 

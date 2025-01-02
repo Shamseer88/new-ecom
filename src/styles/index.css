@@ -4,3 +4,10 @@
   margin: 0;
   padding: 0;
 }
+
+.navbars {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
