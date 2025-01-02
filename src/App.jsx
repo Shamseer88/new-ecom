@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -9,12 +9,17 @@ import { GenderProvider } from "./context/GenderContext";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
   const gender = location.pathname.split("/")[1];
-  console.log("GENDER", gender);
+
+  const handleCategoryChange = (category) => {
+    navigate(`/${gender}/${category}`);
+  };
+
   return (
     <GenderProvider>
       <TopNavbar />
-      <BottomNavbar gender={gender} />
+      <BottomNavbar gender={gender} onCategoryChange={handleCategoryChange} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

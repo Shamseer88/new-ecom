@@ -6,7 +6,7 @@ import "./CategoryMenu.css";
 import { NavLink } from "react-router-dom";
 import { useGender } from "../../context/GenderContext";
 
-const CategoryMenu = () => {
+const CategoryMenu = ({ onCategoryChange }) => {
   const { gender } = useGender();
   const [categories, setCategories] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,7 +49,10 @@ const CategoryMenu = () => {
                   ? "category-item active-category-link"
                   : "category-item"
               }
-              onClick={closeMenu}
+              onClick={() => {
+                closeMenu();
+                onCategoryChange(category); // Notify parent of category change
+              }}
               to={`/${gender}/${category}`}
             >
               {capitalizeFirstLetter(category)}
@@ -64,6 +67,7 @@ const CategoryMenu = () => {
             className={({ isActive }) =>
               isActive ? "category-item active-category-link" : "category-item"
             }
+            onClick={() => onCategoryChange(category)} // Notify parent of category change
             to={`/${gender}/${category}`}
           >
             {capitalizeFirstLetter(category)}

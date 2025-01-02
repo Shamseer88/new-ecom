@@ -16,12 +16,43 @@
 .no-products-div {
   font-family: "Poppins", sans-serif;
   padding: 50px;
+}
+
+.see-more-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: black;
-  margin-top: 50px;
+  margin: 20px 0;
+}
+
+.see-more-button {
+  padding: 5px 15px;
+  font-size: 0.75rem;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.see-more-button:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.see-more-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.loading-div {
+  padding: 50px;
+}
+
+.see-more-loader {
+  padding-left: 30px;
 }
 
 @media (max-width: 1180px) {
