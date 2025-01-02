@@ -1,0 +1,35 @@
+.product-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  margin-bottom: 20px;
+}
+
+.selected-image {
+  width: 300px; /* Set the main image to a larger size */
+  height: auto;
+  border: 2px solid #000; /* Optional: Add a border to the selected image */
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 10px;
+}
+
+.thumbnail-image {
+  width: 60px; /* Smaller size for thumbnails */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.thumbnail-image:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.thumbnail-image.selected {
+  border: 2px solid #000; /* Highlight selected thumbnail with a border */
+}

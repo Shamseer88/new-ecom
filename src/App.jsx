@@ -6,6 +6,7 @@ import TopNavbar from "./components/TopNavbar/TopNavbar";
 import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import GenderPage from "./pages/GenderPage/GenderPage";
 import { GenderProvider } from "./context/GenderContext";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/:gender/:category?" element={<GenderPage />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </GenderProvider>
   );

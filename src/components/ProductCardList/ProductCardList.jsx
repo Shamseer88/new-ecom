@@ -16,6 +16,7 @@ const ProductCardList = ({ products, heading, hasHeading }) => {
         {products?.map((product) => (
           <ProductCard
             key={product._id}
+            id={product._id}
             name={product.name}
             brand={product.brand}
             image={product.displayImage}
