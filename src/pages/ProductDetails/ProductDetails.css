@@ -69,6 +69,7 @@
   .image-thumbnails {
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
   }
   .main-image {
     display: flex;
