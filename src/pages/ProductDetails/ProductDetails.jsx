@@ -56,21 +56,23 @@ const ProductDetails = () => {
     return <div>Error: {error}</div>;
   }
 
+  function formatDescription(description) {
+    // Find the index of the first occurrence of '<'
+    const indexOfTag = description.indexOf("<");
+
+    // If the tag is found, return the substring before it, otherwise return the full string
+    if (indexOfTag !== -1) {
+      return description.substring(0, indexOfTag);
+    } else {
+      return description; // Return the full string if no '<' is found
+    }
+  }
+
   return (
     <div className="product-details-page">
-      <h1>Product Details</h1>
       {product ? (
         <div>
-          <h2>{product.name}</h2>
           <div className="product-images">
-            {/* Main selected image */}
-            <div className="main-image">
-              <img
-                src={selectedImage}
-                alt={product.name}
-                className="selected-image"
-              />
-            </div>
             <div className="image-thumbnails">
               {/* Thumbnail images */}
               {product.images.map((image, index) => (
@@ -85,19 +87,23 @@ const ProductDetails = () => {
                 />
               ))}
             </div>
+            <div className="main-image">
+              <img
+                src={selectedImage}
+                alt={product.name}
+                className="selected-image"
+              />
+            </div>
+            <div className="details-div">
+              <h2>
+                {product.brand} {"-"} {product.name}
+              </h2>
+              <p className="product-details-price">₹{product.price}</p>
+              <p className="product-details-description">
+                {formatDescription(product.description)}
+              </p>
+            </div>
           </div>
-          <p>
-            <strong>Price:</strong> ₹{product.price}
-          </p>
-          <p>
-            <strong>Description:</strong> {product.description}
-          </p>
-          <p>
-            <strong>Brand:</strong> {product.brand}
-          </p>
-          <p>
-            <strong>Category:</strong> {product.category}
-          </p>
         </div>
       ) : (
         <p>No product details found.</p>
