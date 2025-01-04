@@ -64,7 +64,7 @@
     justify-content: center;
   }
   .selected-image {
-    width: 200px;
+    width: 250px;
   }
   .image-thumbnails {
     flex-direction: row;
