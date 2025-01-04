@@ -72,7 +72,7 @@ const ProductDetails = () => {
     <div className="product-details-page">
       {product ? (
         <div>
-          <div className="product-images">
+          <div className="product-details-main">
             <div className="image-thumbnails">
               {/* Thumbnail images */}
               {product.images.map((image, index) => (
