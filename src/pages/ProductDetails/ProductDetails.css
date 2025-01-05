@@ -50,12 +50,18 @@
 .product-details-price {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .product-details-description {
   font-family: "Poppins", sans-serif;
   font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.choose-size-text {
+  margin-top: 1rem;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 850px) {

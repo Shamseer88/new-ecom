@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./ProductDetails.css";
 import { base_domain, api_key } from "../../utils/apiDetails";
+import Rating from "../../components/Rating/Rating";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -98,10 +99,13 @@ const ProductDetails = () => {
               <h2>
                 {product.brand} {"-"} {product.name}
               </h2>
+              <Rating rating={product.ratings} />
               <p className="product-details-price">₹{product.price}</p>
               <p className="product-details-description">
                 {formatDescription(product.description)}
               </p>
+              <hr />
+              <p className="choose-size-text">Choose size</p>
             </div>
           </div>
         </div>
