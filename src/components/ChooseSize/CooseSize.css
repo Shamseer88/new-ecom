@@ -1,0 +1,30 @@
+.choose-size-div {
+  padding: 1rem 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.choose-size-heading {
+  font-size: 0.9rem;
+}
+
+.choose-size-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 10px;
+}
+
+.choose-size-buttons button {
+  border: none;
+  background-color: #f0f0f0;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.choose-size-buttons button.selected-size {
+  background-color: black;
+  color: #f0f0f0;
+}

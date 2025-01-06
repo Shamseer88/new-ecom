@@ -4,6 +4,7 @@ import axios from "axios";
 import "./ProductDetails.css";
 import { base_domain, api_key } from "../../utils/apiDetails";
 import Rating from "../../components/Rating/Rating";
+import ChooseSize from "../../components/ChooseSize/ChooseSize";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -44,7 +45,6 @@ const ProductDetails = () => {
     }
   }, [id]);
 
-  // Function to handle image click and update the selected image
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
@@ -75,7 +75,6 @@ const ProductDetails = () => {
         <div>
           <div className="product-details-main">
             <div className="image-thumbnails">
-              {/* Thumbnail images */}
               {product.images.map((image, index) => (
                 <img
                   key={index}
@@ -105,7 +104,10 @@ const ProductDetails = () => {
                 {formatDescription(product.description)}
               </p>
               <hr />
-              <p className="choose-size-text">Choose size</p>
+              <div className="choose-size-of-product">
+                <ChooseSize sizes={product.size} />
+              </div>
+              <hr />
             </div>
           </div>
         </div>

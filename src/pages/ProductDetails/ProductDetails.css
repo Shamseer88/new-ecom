@@ -59,11 +59,6 @@
   margin-bottom: 1rem;
 }
 
-.choose-size-text {
-  margin-top: 1rem;
-  font-family: "Poppins", sans-serif;
-}
-
 @media (max-width: 850px) {
   .product-details-main {
     flex-direction: column;
