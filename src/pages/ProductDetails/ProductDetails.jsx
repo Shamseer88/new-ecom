@@ -5,13 +5,15 @@ import "./ProductDetails.css";
 import { base_domain, api_key } from "../../utils/apiDetails";
 import Rating from "../../components/Rating/Rating";
 import ChooseSize from "../../components/ChooseSize/ChooseSize";
+import AddToCart from "../../components/AddToCart/AddToCart";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(""); // To track the selected image
+  const [selectedImage, setSelectedImage] = useState("");
+  const [count, setCount] = useState(1);
 
   const fetchProductDetails = async (productId) => {
     try {
@@ -69,6 +71,18 @@ const ProductDetails = () => {
     }
   }
 
+  const incrementCount = (prevCount) => {
+    setCount(prevCount + 1);
+  };
+
+  const decrementCount = (prevCount) => {
+    if (prevCount === 1) {
+      return;
+    } else {
+      setCount(prevCount - 1);
+    }
+  };
+
   return (
     <div className="product-details-page">
       {product ? (
@@ -108,6 +122,13 @@ const ProductDetails = () => {
                 <ChooseSize sizes={product.size} />
               </div>
               <hr />
+              <div className="add-to-cart-component">
+                <AddToCart
+                  count={count}
+                  increment={() => incrementCount(count)}
+                  decrement={() => decrementCount(count)}
+                />
+              </div>
             </div>
           </div>
         </div>

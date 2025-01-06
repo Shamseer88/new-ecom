@@ -1,0 +1,38 @@
+.add-to-cart-div {
+  font-family: "Poppins", sans-serif;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-to-cart-count {
+  display: flex;
+  gap: 1rem;
+  padding: 7px 21px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.add-to-cart-btn {
+  flex-grow: 1;
+}
+
+.add-to-cart-sign {
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.add-to-cart-btn button {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 21px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  width: 100%;
+}
