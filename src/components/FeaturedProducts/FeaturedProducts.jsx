@@ -30,8 +30,8 @@ const FeaturedProducts = ({ feature }) => {
 
   return (
     <div className="feature-section">
-      <h2>{feature}</h2>
-      <ProductCardList products={products} />
+      {/* <h2>{feature}</h2> */}
+      <ProductCardList products={products} heading={feature} />
     </div>
   );
 };

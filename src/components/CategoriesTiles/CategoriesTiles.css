@@ -1,0 +1,25 @@
+.category-tiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.category-tile {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.category-tile span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+}
