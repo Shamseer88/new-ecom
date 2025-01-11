@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import "./CategoriesTiles.css";
 import fetchCategories from "../../utils/getCategories";
+import { useGender } from "../../context/GenderContext";
+import { NavLink } from "react-router-dom";
 
 const CategoriesTiles = () => {
+  const { gender } = useGender();
   const [categories, setCategories] = useState([]);
 
   const loadCategories = async () => {
@@ -20,7 +23,7 @@ const CategoriesTiles = () => {
     <div className="category-tiles">
       {categories.map((category) => (
         <div key={category} className="category-tile">
-          <span category-tile-text>{category}</span>
+          <NavLink to={`/${gender}/${category}`}>{category}</NavLink>
         </div>
       ))}
     </div>

@@ -8,7 +8,7 @@
 
 .category-tile {
   width: 250px;
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,4 +22,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   text-transform: capitalize;
+}
+
+.category-tile a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: white;
 }
