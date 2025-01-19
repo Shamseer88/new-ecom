@@ -7,6 +7,7 @@ import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import GenderPage from "./pages/GenderPage/GenderPage";
 import { GenderProvider } from "./context/GenderContext";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   const location = useLocation();
@@ -18,19 +19,24 @@ function App() {
   };
 
   return (
-    <GenderProvider>
-      <div className="navbars">
-        <TopNavbar />
-        <BottomNavbar gender={gender} onCategoryChange={handleCategoryChange} />
-      </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/:gender/:category?" element={<GenderPage />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
-    </GenderProvider>
+    <AuthProvider>
+      <GenderProvider>
+        <div className="navbars">
+          <TopNavbar />
+          <BottomNavbar
+            gender={gender}
+            onCategoryChange={handleCategoryChange}
+          />
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/:gender/:category?" element={<GenderPage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </GenderProvider>
+    </AuthProvider>
   );
 }
 

@@ -1,0 +1,65 @@
+.register-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-form-div {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  border-radius: 15px;
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 4rem;
+  width: 90%;
+  max-width: 350px;
+}
+
+.register-form-div h2 {
+  font-family: "Poppins", sans-serif;
+}
+
+.register-form-div input {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+}
+
+.register-form-div button {
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.already-have-an-account {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+}
+
+.already-have-an-account span {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 450px) {
+  .register-form-div {
+    max-width: 275px;
+  }
+}
