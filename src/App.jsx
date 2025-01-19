@@ -8,6 +8,7 @@ import GenderPage from "./pages/GenderPage/GenderPage";
 import { GenderProvider } from "./context/GenderContext";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import { AuthProvider } from "./context/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const location = useLocation();
@@ -35,6 +36,18 @@ function App() {
           <Route path="/:gender/:category?" element={<GenderPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
+        <ToastContainer
+          position="top-center"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </GenderProvider>
     </AuthProvider>
   );
