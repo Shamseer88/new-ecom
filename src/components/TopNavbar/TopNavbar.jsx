@@ -12,10 +12,15 @@ const TopNavbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
+  const [userName, setUserName] = useState(
+    localStorage.getItem("userName") || ""
+  );
   const popupRef = useRef(null);
 
   const handleLogout = () => {
     logout();
+    setUserName("");
+    localStorage.removeItem("userName");
     setShowPopup(false); // Close the popup after logout
   };
 
@@ -28,6 +33,13 @@ const TopNavbar = () => {
     navigate("/register");
     setShowPopup(false);
   };
+
+  useEffect(() => {
+    if (user && user.name) {
+      setUserName(user.name);
+      localStorage.setItem("userName", user.name);
+    }
+  }, [user]);
 
   useEffect(() => {
     const handleClickOutsidePopup = (e) => {
