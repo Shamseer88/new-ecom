@@ -6,10 +6,12 @@ import { FaRegHeart } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 import { useGender } from "../../context/GenderContext";
 import { useAuth } from "../../context/AuthContext";
+import { useWishList } from "../../context/WishListContext";
 
 const TopNavbar = () => {
   const { setGender } = useGender();
   const { user, logout } = useAuth();
+  const { wishlist } = useWishList();
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [userName, setUserName] = useState(
@@ -32,6 +34,10 @@ const TopNavbar = () => {
   const handleRegisterRedirect = () => {
     navigate("/register");
     setShowPopup(false);
+  };
+
+  const navigateToWishlist = () => {
+    navigate("/wishlist");
   };
 
   useEffect(() => {
@@ -96,7 +102,12 @@ const TopNavbar = () => {
             )}
           </div>
         )}
-        <FaRegHeart size={17} className="heart-icon" />
+        <div className="wishlist-icon" onClick={navigateToWishlist}>
+          <FaRegHeart size={17} className="heart-icon" />
+          {wishlist.length > 0 && (
+            <span className="wishlist-count">{wishlist.length}</span>
+          )}
+        </div>
         <FiShoppingCart size={18} className="cart-icon" />
       </div>
     </div>
