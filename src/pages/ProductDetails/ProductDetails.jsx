@@ -6,14 +6,19 @@ import { base_domain, api_key } from "../../utils/apiDetails";
 import Rating from "../../components/Rating/Rating";
 import ChooseSize from "../../components/ChooseSize/ChooseSize";
 import AddToCart from "../../components/AddToCart/AddToCart";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { id } = useParams();
+
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
   const [count, setCount] = useState(1);
+  const [selectedSize, setSelectedSize] = useState("");
+
+  const token = localStorage.getItem("token");
 
   const fetchProductDetails = async (productId) => {
     try {
@@ -28,8 +33,8 @@ const ProductDetails = () => {
       );
       if (response && response.status === 200) {
         setProduct(response.data.data);
-        // Set the first image as the selected image by default
         setSelectedImage(response.data.data.images[0]);
+        setSelectedSize(response.data.data.sizes?.[0]);
       } else {
         setError("Failed to fetch product details");
       }
@@ -60,14 +65,11 @@ const ProductDetails = () => {
   }
 
   function formatDescription(description) {
-    // Find the index of the first occurrence of '<'
     const indexOfTag = description.indexOf("<");
-
-    // If the tag is found, return the substring before it, otherwise return the full string
     if (indexOfTag !== -1) {
       return description.substring(0, indexOfTag);
     } else {
-      return description; // Return the full string if no '<' is found
+      return description;
     }
   }
 
@@ -80,6 +82,33 @@ const ProductDetails = () => {
       return;
     } else {
       setCount(prevCount - 1);
+    }
+  };
+
+  const handleAddToCart = async () => {
+    if (!selectedSize) {
+      toast.warning("Please select a size before adding to cart!");
+      return;
+    }
+
+    try {
+      const response = await axios.patch(
+        `${base_domain}/api/v1/ecommerce/cart/${id}`,
+        { quantity: count, size: selectedSize },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            projectID: api_key,
+          },
+        }
+      );
+      if (response.status === 200) {
+        toast.success("Item added to cart successfully!");
+        setCount(1);
+      }
+    } catch (err) {
+      console.error("Add to Cart Error:", err);
+      toast.error("Failed to add item to cart.");
     }
   };
 
@@ -119,7 +148,11 @@ const ProductDetails = () => {
               </p>
               <hr />
               <div className="choose-size-of-product">
-                <ChooseSize sizes={product.size} />
+                <ChooseSize
+                  sizes={product.size}
+                  selectedSize={selectedSize}
+                  setSelectedSize={setSelectedSize}
+                />
               </div>
               <hr />
               <div className="add-to-cart-component">
@@ -127,6 +160,7 @@ const ProductDetails = () => {
                   count={count}
                   increment={() => incrementCount(count)}
                   decrement={() => decrementCount(count)}
+                  addToCart={handleAddToCart}
                 />
               </div>
             </div>

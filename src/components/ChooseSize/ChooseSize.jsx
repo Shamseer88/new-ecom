@@ -1,12 +1,10 @@
-import { useState } from "react";
 import "./CooseSize.css";
 
-const ChooseSize = ({ sizes }) => {
-  const [selectedSize, setSelectedSize] = useState(sizes?.[0]);
-
+const ChooseSize = ({ sizes, selectedSize, setSelectedSize }) => {
   const handleSizeClicked = (size) => {
     setSelectedSize(size);
   };
+
   return (
     <div className="choose-size-div">
       <p className="choose-size-heading">Choose size</p>
