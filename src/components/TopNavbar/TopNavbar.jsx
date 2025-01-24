@@ -104,7 +104,7 @@ const TopNavbar = () => {
         )}
         <div className="wishlist-icon" onClick={navigateToWishlist}>
           <FaRegHeart size={17} className="heart-icon" />
-          {wishlist.length > 0 && (
+          {user && wishlist.length > 0 && (
             <span className="wishlist-count">{wishlist.length}</span>
           )}
         </div>

@@ -11,6 +11,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import WishListPage from "./pages/WishListPage/WishListPage";
 import { WishListProvider } from "./context/WishListContext";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   const location = useLocation();
@@ -38,7 +39,14 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/:gender/:category?" element={<GenderPage />} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/wishlist" element={<WishListPage />} />
+            <Route
+              path="/wishlist"
+              element={
+                <ProtectedRoute>
+                  <WishListPage />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
           <ToastContainer
             position="top-center"
