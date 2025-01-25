@@ -1,6 +1,4 @@
 .cart-container {
-  width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -12,18 +10,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Cart Items */
 .cart-items-container {
   font-family: "Poppins", sans-serif;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
+  gap: 2rem;
+  padding: 1rem 2rem;
 }
 
 .cart-items {
   width: 100%;
-  flex-grow: 1;
 }
 
 .cart-item {
@@ -82,15 +78,15 @@ h1 {
   font-weight: bold;
 }
 
-/* Cart Summary */
 .cart-summary {
   width: 100%;
-  max-width: 350px;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  max-width: 450px;
+  margin: auto;
 }
 
 .cart-summary h3 {
@@ -98,10 +94,6 @@ h1 {
   margin-bottom: 20px;
   text-align: center;
   color: #333;
-}
-
-.cart-summary-table {
-  width: 100%;
 }
 
 .cart-summary-table-item {
@@ -156,78 +148,10 @@ h1 {
   background-color: #e53935;
 }
 
-/* Responsive Styles */
-@media (min-width: 1024px) {
-  .cart-items-container {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .cart-items {
-    flex: 1;
-  }
-
-  .cart-summary {
-    max-width: 350px;
-    margin-left: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .cart-items-container {
-    flex-direction: column;
-  }
-
-  .cart-item {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cart-item-image {
-    margin-bottom: 10px;
-  }
-
-  .cart-summary {
-    width: 100%;
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  .cart-item-heading h3 {
-    font-size: 1rem;
-  }
-
-  .cart-item-price {
-    font-size: 1.1rem;
-  }
-
-  .cart-summary h3 {
-    font-size: 1.2rem;
-  }
-
-  .cart-summary-table-description {
-    font-size: 0.9rem;
-  }
-
-  .cart-summary-table-value {
-    font-size: 1rem;
-  }
-
-  .cart-checkout-btn {
-    font-size: 1rem;
-  }
-}
-
-/* Clear Cart Button */
 .cart-clear-btn {
   width: 100%;
   padding: 10px;
-  background-color: #ff4d4f; /* Red color for destructive action */
+  background-color: #ff4d4f;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -240,26 +164,29 @@ h1 {
 }
 
 .cart-clear-btn:hover {
-  background-color: #e53935; /* Darker red on hover */
+  background-color: #e53935;
 }
 
 .cart-clear-btn:active {
-  background-color: #d32f2f; /* Even darker red on active */
+  background-color: #d32f2f;
 }
 
-/* Empty Cart Message */
 .cart-empty-message {
   margin-top: 30px;
   font-family: "Poppins", sans-serif;
-  color: #ff4d4f; /* Red color to signify that the cart is empty */
+  color: #ff4d4f;
   font-size: 1.2rem;
   text-align: center;
 }
 
-/* In CartPage.css */
-
 .delivery-info {
-  font-size: 0.87rem;
+  font-size: 0.8rem;
   color: #555;
   margin-top: 10px;
+}
+
+@media (max-width: 1050px) {
+  .cart-items-container {
+    flex-direction: column;
+  }
 }
