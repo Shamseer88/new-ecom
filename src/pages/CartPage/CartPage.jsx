@@ -44,10 +44,12 @@ const CartPage = () => {
                 <div className="cart-item-details">
                   <div className="cart-item-heading">
                     <h3>{cartItem.product.name}</h3>
-                    <FaTrash
+                    <button
                       className="cart-item-delete-btn"
                       onClick={() => removeFromCart(cartItem.product._id)}
-                    />
+                    >
+                      Delete
+                    </button>
                   </div>
                   <p>
                     Size: <span>{cartItem.size}</span>
