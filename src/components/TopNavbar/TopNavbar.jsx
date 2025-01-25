@@ -7,11 +7,13 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useGender } from "../../context/GenderContext";
 import { useAuth } from "../../context/AuthContext";
 import { useWishList } from "../../context/WishListContext";
+import { useCart } from "../../context/CartContext";
 
 const TopNavbar = () => {
   const { setGender } = useGender();
   const { user, logout } = useAuth();
   const { wishlist } = useWishList();
+  const { cartLength } = useCart();
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [userName, setUserName] = useState(
@@ -108,7 +110,12 @@ const TopNavbar = () => {
             <span className="wishlist-count">{wishlist.length}</span>
           )}
         </div>
-        <FiShoppingCart size={18} className="cart-icon" />
+        <div className="cart-icon-div">
+          <FiShoppingCart size={18} className="cart-icon" />
+          {user && cartLength > 0 && (
+            <span className="wishlist-count">{cartLength}</span>
+          )}
+        </div>
       </div>
     </div>
   );

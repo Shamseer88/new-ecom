@@ -7,9 +7,12 @@ import Rating from "../../components/Rating/Rating";
 import ChooseSize from "../../components/ChooseSize/ChooseSize";
 import AddToCart from "../../components/AddToCart/AddToCart";
 import { toast } from "react-toastify";
+import { useCart } from "../../context/CartContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
+
+  const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -90,26 +93,15 @@ const ProductDetails = () => {
       toast.warning("Please select a size before adding to cart!");
       return;
     }
+    addToCart(id, count, selectedSize);
 
-    try {
-      const response = await axios.patch(
-        `${base_domain}/api/v1/ecommerce/cart/${id}`,
-        { quantity: count, size: selectedSize },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            projectID: api_key,
-          },
-        }
-      );
-      if (response.status === 200) {
-        toast.success("Item added to cart successfully!");
-        setCount(1);
-      }
-    } catch (err) {
-      console.error("Add to Cart Error:", err);
-      toast.error("Failed to add item to cart.");
-    }
+    // try {
+    //   addToCart(id, count, selectedSize);
+    //   setCount(1);
+    // } catch (err) {
+    //   console.error("Add to Cart Error:", err);
+    //   toast.error("Failed to add item to cart.");
+    // }
   };
 
   return (

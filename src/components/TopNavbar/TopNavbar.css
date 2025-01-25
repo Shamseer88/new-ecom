@@ -99,3 +99,7 @@ a {
   padding: 2px 5px;
   font-family: "Barlow Condensed", sans-serif;
 }
+
+.cart-icon-div {
+  position: relative;
+}
