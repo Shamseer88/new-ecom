@@ -110,7 +110,7 @@ const TopNavbar = () => {
             <span className="wishlist-count">{wishlist.length}</span>
           )}
         </div>
-        <div className="cart-icon-div">
+        <div className="cart-icon-div" onClick={() => navigate("/cart")}>
           <FiShoppingCart size={18} className="cart-icon" />
           {user && cartLength > 0 && (
             <span className="wishlist-count">{cartLength}</span>

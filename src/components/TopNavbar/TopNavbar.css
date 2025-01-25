@@ -102,4 +102,5 @@ a {
 
 .cart-icon-div {
   position: relative;
+  cursor: pointer;
 }

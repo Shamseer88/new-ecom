@@ -13,6 +13,7 @@ import WishListPage from "./pages/WishListPage/WishListPage";
 import { WishListProvider } from "./context/WishListContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { CartProvider } from "./context/CartContext";
+import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   const location = useLocation();
@@ -46,6 +47,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <WishListPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <CartPage />
                   </ProtectedRoute>
                 }
               />
