@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { api_key, base_domain } from "../utils/apiDetails";
 import { useAuth } from "./AuthContext";
+import { useWishList } from "./WishListContext";
 
 const CartContext = createContext();
 
