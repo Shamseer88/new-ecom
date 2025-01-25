@@ -8,6 +8,7 @@ import { useGender } from "../../context/GenderContext";
 import { useAuth } from "../../context/AuthContext";
 import { useWishList } from "../../context/WishListContext";
 import { useCart } from "../../context/CartContext";
+import { toast } from "react-toastify";
 
 const TopNavbar = () => {
   const { setGender } = useGender();
@@ -39,7 +40,17 @@ const TopNavbar = () => {
   };
 
   const navigateToWishlist = () => {
+    if (!user) {
+      toast.warning("Please log in to access your wishlist.");
+    }
     navigate("/wishlist");
+  };
+
+  const navigateToCart = () => {
+    if (!user) {
+      toast.warning("Please log in to access your cart.");
+    }
+    navigate("/cart");
   };
 
   useEffect(() => {
@@ -87,7 +98,7 @@ const TopNavbar = () => {
       <div className="topnavbar-right">
         <div
           className={user && "user-name"}
-          onClick={() => setShowPopup((prev) => !prev)} // Toggle popup visibility
+          onClick={() => setShowPopup((prev) => !prev)}
         >
           <FaRegUser className="user-icon" />
           {user && <p>Welcome {user.name}</p>}
@@ -110,7 +121,7 @@ const TopNavbar = () => {
             <span className="wishlist-count">{wishlist.length}</span>
           )}
         </div>
-        <div className="cart-icon-div" onClick={() => navigate("/cart")}>
+        <div className="cart-icon-div" onClick={navigateToCart}>
           <FiShoppingCart size={18} className="cart-icon" />
           {user && cartLength > 0 && (
             <span className="wishlist-count">{cartLength}</span>
