@@ -14,6 +14,7 @@ import { WishListProvider } from "./context/WishListContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { CartProvider } from "./context/CartContext";
 import CartPage from "./pages/CartPage/CartPage";
+import SearchResults from "./pages/SearchResults/SearchResults";
 
 function App() {
   const location = useLocation();
@@ -58,6 +59,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="/search" element={<SearchResults />} />
             </Routes>
             <ToastContainer
               position="top-center"

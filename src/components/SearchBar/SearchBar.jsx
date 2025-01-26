@@ -1,13 +1,32 @@
-import React from "react";
-import { CiSearch } from "react-icons/ci";
-
-import "./SearchBar.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${searchQuery}`);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
-    <div className="searchbar-div">
-      <CiSearch />
-      <input type="search" placeholder="Search for products..." />
+    <div className="search-bar">
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Search for products"
+      />
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };
