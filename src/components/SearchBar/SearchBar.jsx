@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import "./SearchBar.css";
+import { AiOutlineSearch } from "react-icons/ai";
+
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -8,6 +11,7 @@ const SearchBar = () => {
   const handleSearch = () => {
     if (searchQuery.trim()) {
       navigate(`/search?query=${searchQuery}`);
+      setSearchQuery("");
     }
   };
 
@@ -18,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-bar">
+    <div className="search-bar-div">
       <input
         type="text"
         value={searchQuery}
@@ -26,7 +30,9 @@ const SearchBar = () => {
         onKeyDown={handleKeyDown}
         placeholder="Search for products"
       />
-      <button onClick={handleSearch}>Search</button>
+      <div className="search-icon-div">
+        <AiOutlineSearch onClick={handleSearch} className="search-icon" />
+      </div>
     </div>
   );
 };
