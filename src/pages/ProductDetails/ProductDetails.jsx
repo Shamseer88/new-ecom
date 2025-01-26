@@ -8,6 +8,7 @@ import ChooseSize from "../../components/ChooseSize/ChooseSize";
 import AddToCart from "../../components/AddToCart/AddToCart";
 import { toast } from "react-toastify";
 import { useCart } from "../../context/CartContext";
+import Loader from "../../components/Loader/Loader";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -60,7 +61,11 @@ const ProductDetails = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="details-page-loader-div">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
@@ -94,14 +99,6 @@ const ProductDetails = () => {
       return;
     }
     addToCart(id, count, selectedSize);
-
-    // try {
-    //   addToCart(id, count, selectedSize);
-    //   setCount(1);
-    // } catch (err) {
-    //   console.error("Add to Cart Error:", err);
-    //   toast.error("Failed to add item to cart.");
-    // }
   };
 
   return (
